@@ -201,9 +201,9 @@ public final class LinkedBag<T> implements BagInterface<T>
 		@return  A bag containing the union of these bags.
     */
 	public BagInterface<T> union(BagInterface<T> otherBag) {
-        LinkedBag<T> unionBag = new LinkedBag<T>();
         T[] thisBagArray = toArray();
         T[] otherBagArray = otherBag.toArray();
+        LinkedBag<T> unionBag = new LinkedBag<T>();
         for (int i = 0; i < thisBagArray.length; i++) {
             unionBag.add(thisBagArray[i]);
         }
@@ -218,7 +218,7 @@ public final class LinkedBag<T> implements BagInterface<T>
 		@return  A bag containing the intersection of these bags.
     */
 	public BagInterface<T> intersection(BagInterface<T> otherBag) {
-        System.out.println("Stub function intersection() called!");
+        System.out.println("Stub function LinkedBag.intersection() called!");
         return null;
     }
 
@@ -227,8 +227,22 @@ public final class LinkedBag<T> implements BagInterface<T>
 		@return  A bag containing the difference of these bags.
     */
 	public BagInterface<T> difference(BagInterface<T> otherBag) {
-        System.out.println("Stub function difference() called!");
-        return null;
+        T[] thisBagArray = toArray();
+        T[] otherBagArray = otherBag.toArray();
+        BagInterface<T> differenceBag = new LinkedBag<T>();
+        for (int i = 0; i < thisBagArray.length; i++) {
+            for (int j = 0; j < otherBagArray.length; j++) {
+                if (thisBagArray[i] == otherBagArray[j]) {
+                    thisBagArray[i] = null;
+                    otherBagArray[j] = null;
+                    break;
+                }
+            }
+            if (thisBagArray[i] != null) {
+                otherBag.add(thisBagArray[i]);
+            }
+        }
+        return differenceBag;
     }
 
     private class Node

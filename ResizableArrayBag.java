@@ -117,9 +117,9 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 	}
 
 	public BagInterface<T> union(BagInterface<T> otherBag) {
-      ResizableArrayBag<T> unionBag = new ResizableArrayBag<T>();
       T[] thisBagArray = toArray();
       T[] otherBagArray = otherBag.toArray();
+      ResizableArrayBag<T> unionBag = new ResizableArrayBag<T>(thisBagArray.length+otherBagArray.length);
       for (int i = 0; i < thisBagArray.length; i++) {
          unionBag.add(thisBagArray[i]);
       }
@@ -134,10 +134,24 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       return null;
    }
 
-   public BagInterface<T> difference(BagInterface<T> otherBag) {
-      System.out.println("Stub function ResizableArrayBag.difference() called!");
-      return null;
-   }
+	public BagInterface<T> difference(BagInterface<T> otherBag) {
+      T[] thisBagArray = toArray();
+      T[] otherBagArray = otherBag.toArray();
+      BagInterface<T> differenceBag = new ResizableArrayBag<T>(thisBagArray.length);
+      for (int i = 0; i < thisBagArray.length; i++) {
+          for (int j = 0; j < otherBagArray.length; j++) {
+              if (thisBagArray[i] == otherBagArray[j]) {
+                  thisBagArray[i] = null;
+                  otherBagArray[j] = null;
+                  break;
+              }
+          }
+          if (thisBagArray[i] != null) {
+              otherBag.add(thisBagArray[i]);
+          }
+      }
+      return differenceBag;
+  }
    
 	private int getIndexOf(T anEntry)
 	{
