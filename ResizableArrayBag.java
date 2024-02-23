@@ -129,10 +129,23 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       return unionBag;
    }
 
-   public BagInterface<T> intersection(BagInterface<T> otherBag) {
-      System.out.println("Stub function ResizableArrayBag.intersection() called!");
-      return null;
-   }
+	public BagInterface<T> intersection(BagInterface<T> otherBag) {
+      T[] thisBagArray = toArray();
+      T[] otherBagArray = otherBag.toArray();
+      BagInterface<T> intersectionBag = new ResizableArrayBag<T>
+          (thisBagArray.length >= otherBagArray.length ? thisBagArray.length : otherBagArray.length);
+      for (int i = 0; i < thisBagArray.length; i++) {
+          for (int j = 0; j < otherBagArray.length; j++) {
+              if (thisBagArray[i] == otherBagArray[j]) {
+                  intersectionBag.add(thisBagArray[i]);
+                  thisBagArray[i] = null;
+                  otherBagArray[j] = null;
+                  break;
+              }
+          }
+      }
+      return intersectionBag;
+  }
 
 	public BagInterface<T> difference(BagInterface<T> otherBag) {
       T[] thisBagArray = toArray();
@@ -147,7 +160,7 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
               }
           }
           if (thisBagArray[i] != null) {
-              otherBag.add(thisBagArray[i]);
+              differenceBag.add(thisBagArray[i]);
           }
       }
       return differenceBag;

@@ -218,8 +218,20 @@ public final class LinkedBag<T> implements BagInterface<T>
 		@return  A bag containing the intersection of these bags.
     */
 	public BagInterface<T> intersection(BagInterface<T> otherBag) {
-        System.out.println("Stub function LinkedBag.intersection() called!");
-        return null;
+        T[] thisBagArray = toArray();
+        T[] otherBagArray = otherBag.toArray();
+        BagInterface<T> intersectionBag = new LinkedBag<T>();
+        for (int i = 0; i < thisBagArray.length; i++) {
+            for (int j = 0; j < otherBagArray.length; j++) {
+                if (thisBagArray[i] == otherBagArray[j]) {
+                    intersectionBag.add(thisBagArray[i]);
+                    thisBagArray[i] = null;
+                    otherBagArray[j] = null;
+                    break;
+                }
+            }
+        }
+        return intersectionBag;
     }
 
 	/** Returns a bag containing the difference of this bag and another bag.
@@ -239,7 +251,7 @@ public final class LinkedBag<T> implements BagInterface<T>
                 }
             }
             if (thisBagArray[i] != null) {
-                otherBag.add(thisBagArray[i]);
+                differenceBag.add(thisBagArray[i]);
             }
         }
         return differenceBag;
