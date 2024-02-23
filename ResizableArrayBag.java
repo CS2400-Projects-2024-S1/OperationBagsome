@@ -133,37 +133,33 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       T[] thisBagArray = toArray();
       T[] otherBagArray = otherBag.toArray();
       BagInterface<T> intersectionBag = new ResizableArrayBag<T>
-          (thisBagArray.length >= otherBagArray.length ? thisBagArray.length : otherBagArray.length);
+          (thisBagArray.length < otherBagArray.length ? thisBagArray.length : otherBagArray.length);
+      BagInterface<T> tempBag = new ResizableArrayBag<T>(thisBagArray.length);
       for (int i = 0; i < thisBagArray.length; i++) {
-          for (int j = 0; j < otherBagArray.length; j++) {
-              if (thisBagArray[i] == otherBagArray[j]) {
-                  intersectionBag.add(thisBagArray[i]);
-                  thisBagArray[i] = null;
-                  otherBagArray[j] = null;
-                  break;
-              }
+          tempBag.add(thisBagArray[i]);
+      }
+      for (int i = 0; i < otherBagArray.length; i++) {
+          if (tempBag.contains(otherBagArray[i])) {
+              intersectionBag.add(otherBagArray[i]);
+              tempBag.remove(otherBagArray[i]);
           }
       }
       return intersectionBag;
-  }
+   }
 
 	public BagInterface<T> difference(BagInterface<T> otherBag) {
       T[] thisBagArray = toArray();
       T[] otherBagArray = otherBag.toArray();
       BagInterface<T> differenceBag = new ResizableArrayBag<T>(thisBagArray.length);
       for (int i = 0; i < thisBagArray.length; i++) {
-          for (int j = 0; j < otherBagArray.length; j++) {
-              if (thisBagArray[i] == otherBagArray[j]) {
-                  thisBagArray[i] = null;
-                  otherBagArray[j] = null;
-                  break;
-              }
-          }
-          if (thisBagArray[i] != null) {
-              differenceBag.add(thisBagArray[i]);
-          }
-      }
-      return differenceBag;
+         differenceBag.add(thisBagArray[i]);
+     }
+     for (int i = 0; i < otherBagArray.length; i++) {
+         if (differenceBag.contains(otherBagArray[i])) {
+             differenceBag.remove(otherBagArray[i]);
+         }
+     }
+     return differenceBag;
   }
    
 	private int getIndexOf(T anEntry)

@@ -221,14 +221,14 @@ public final class LinkedBag<T> implements BagInterface<T>
         T[] thisBagArray = toArray();
         T[] otherBagArray = otherBag.toArray();
         BagInterface<T> intersectionBag = new LinkedBag<T>();
+        BagInterface<T> tempBag = new LinkedBag<T>();
         for (int i = 0; i < thisBagArray.length; i++) {
-            for (int j = 0; j < otherBagArray.length; j++) {
-                if (thisBagArray[i] == otherBagArray[j]) {
-                    intersectionBag.add(thisBagArray[i]);
-                    thisBagArray[i] = null;
-                    otherBagArray[j] = null;
-                    break;
-                }
+            tempBag.add(thisBagArray[i]);
+        }
+        for (int i = 0; i < otherBagArray.length; i++) {
+            if (tempBag.contains(otherBagArray[i])) {
+                intersectionBag.add(otherBagArray[i]);
+                tempBag.remove(otherBagArray[i]);
             }
         }
         return intersectionBag;
@@ -243,15 +243,11 @@ public final class LinkedBag<T> implements BagInterface<T>
         T[] otherBagArray = otherBag.toArray();
         BagInterface<T> differenceBag = new LinkedBag<T>();
         for (int i = 0; i < thisBagArray.length; i++) {
-            for (int j = 0; j < otherBagArray.length; j++) {
-                if (thisBagArray[i] == otherBagArray[j]) {
-                    thisBagArray[i] = null;
-                    otherBagArray[j] = null;
-                    break;
-                }
-            }
-            if (thisBagArray[i] != null) {
-                differenceBag.add(thisBagArray[i]);
+            differenceBag.add(thisBagArray[i]);
+        }
+        for (int i = 0; i < otherBagArray.length; i++) {
+            if (differenceBag.contains(otherBagArray[i])) {
+                differenceBag.remove(otherBagArray[i]);
             }
         }
         return differenceBag;
