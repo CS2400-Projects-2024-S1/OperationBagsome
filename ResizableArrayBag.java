@@ -117,8 +117,16 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 	}
 
 	public BagInterface<T> union(BagInterface<T> otherBag) {
-      System.out.println("Stub function ResizableArrayBag.union() called!");
-      return null;
+      ResizableArrayBag<T> unionBag = new ResizableArrayBag<T>();
+      T[] thisBagArray = toArray();
+      T[] otherBagArray = otherBag.toArray();
+      for (int i = 0; i < thisBagArray.length; i++) {
+         unionBag.add(thisBagArray[i]);
+      }
+      for (int i = 0; i < otherBagArray.length; i++) {
+         unionBag.add(otherBagArray[i]);
+      }
+      return unionBag;
    }
 
    public BagInterface<T> intersection(BagInterface<T> otherBag) {

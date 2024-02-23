@@ -201,8 +201,16 @@ public final class LinkedBag<T> implements BagInterface<T>
 		@return  A bag containing the union of these bags.
     */
 	public BagInterface<T> union(BagInterface<T> otherBag) {
-        System.out.println("Stub function union() called!");
-        return null;
+        LinkedBag<T> unionBag = new LinkedBag<T>();
+        T[] thisBagArray = toArray();
+        T[] otherBagArray = otherBag.toArray();
+        for (int i = 0; i < thisBagArray.length; i++) {
+            unionBag.add(thisBagArray[i]);
+        }
+        for (int i = 0; i < otherBagArray.length; i++) {
+            unionBag.add(otherBagArray[i]);
+        }
+        return unionBag;
     }
 
 	/** Returns a bag containing the intersection of this bag and another bag.
