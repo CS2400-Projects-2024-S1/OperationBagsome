@@ -195,6 +195,34 @@ public final class LinkedBag<T> implements BagInterface<T>
         return result;
     }
 
+    /**
+        Returns a bag containing the union of this bag and another bag.
+		@param otherBag  The other bag to union with.
+		@return  A bag containing the union of these bags.
+    */
+	public BagInterface<T> union(BagInterface<T> otherBag) {
+        System.out.println("Stub function union() called!");
+        return null;
+    }
+
+	/** Returns a bag containing the intersection of this bag and another bag.
+		@param otherBag  The other bag to intersect with.
+		@return  A bag containing the intersection of these bags.
+    */
+	public BagInterface<T> intersection(BagInterface<T> otherBag) {
+        System.out.println("Stub function intersection() called!");
+        return null;
+    }
+
+	/** Returns a bag containing the difference of this bag and another bag.
+		@param otherBag  The other bag to differ with.
+		@return  A bag containing the difference of these bags.
+    */
+	public BagInterface<T> difference(BagInterface<T> otherBag) {
+        System.out.println("Stub function difference() called!");
+        return null;
+    }
+
     private class Node
     {
         private T data; //Entry in bag

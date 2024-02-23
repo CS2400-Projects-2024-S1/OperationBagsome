@@ -114,7 +114,22 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       int index = getIndexOf(anEntry);
       T result = removeEntry(index);
       return anEntry.equals(result);
-	} 
+	}
+
+	public BagInterface<T> union(BagInterface<T> otherBag) {
+      System.out.println("Stub function ResizableArrayBag.union() called!");
+      return null;
+   }
+
+   public BagInterface<T> intersection(BagInterface<T> otherBag) {
+      System.out.println("Stub function ResizableArrayBag.intersection() called!");
+      return null;
+   }
+
+   public BagInterface<T> difference(BagInterface<T> otherBag) {
+      System.out.println("Stub function ResizableArrayBag.difference() called!");
+      return null;
+   }
    
 	private int getIndexOf(T anEntry)
 	{
