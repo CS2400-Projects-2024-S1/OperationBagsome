@@ -286,16 +286,15 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       BagInterface<T> intersectionBag = new ResizableArrayBag<T>
           (getCurrentSize() < otherBag.getCurrentSize() ? getCurrentSize() : otherBag.getCurrentSize());
       BagInterface<T> tempBag = new ResizableArrayBag<T>(getCurrentSize());
-      forEach((x)->{
-         if (x != null) {
-            intersectionBag.add(x);
-         }
+      otherBag.forEach((x) -> {
+          tempBag.add(x);
       });
-      otherBag.forEach((x)->{
-         if (tempBag.contains(x)) {
-            intersectionBag.add(x);
-            tempBag.remove(x);
-         }
+    
+      forEach((x) -> {
+          if (x != null && tempBag.contains(x)) { 
+              intersectionBag.add(x); 
+              tempBag.remove(x); 
+          }
       });
       return intersectionBag;
    }
