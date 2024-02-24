@@ -50,3 +50,6 @@ operationbagsome/.mvn/wrapper/maven-wrapper.jar
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# Mac DS_Store
+.DS_Store
