@@ -43,6 +43,13 @@ public class BagDriver {
         System.out.println("\nDifference:");
         BagInterface<Integer> difference = bag1.difference(bag2);
         difference.forEach((x) -> System.out.print(x + " "));
+
+        // Demonstrate that bags are unchanged
+        System.out.println("\nEnding Bag 1: ");
+        bag1.forEach((x)-> System.out.print(x + " "));
+        System.out.println("\nEnding Bag 2: ");
+        bag2.forEach((x)-> System.out.print(x + " "));
+
     }
 
     public static void ResizableArrayBagDemo() {
@@ -82,6 +89,13 @@ public class BagDriver {
         System.out.println("\nDifference:");
         BagInterface<Integer> difference = bag1.difference(bag2);
         difference.forEach((x) -> System.out.print(x + " "));
+
+        // Demonstrate that bags are unchanged
+        System.out.println("\nEnding Bag 1: ");
+        bag1.forEach((x)-> System.out.print(x + " "));
+        System.out.println("\nEnding Bag 2: ");
+        bag2.forEach((x)-> System.out.print(x + " "));
+
      }
 
      public static void BagInteroperabilityDemo() {
@@ -136,6 +150,13 @@ public class BagDriver {
         BagInterface<Integer> difference2 = resizableArrayBag.difference(linkedBag);
         System.out.println("\nDifference of ResizableArrayBag with LinkedBag:");
         difference2.forEach((x)-> System.out.print(x + " "));
+
+        // Demonstrate that bags are unchanged
+        System.out.println("\n\nEnding LinkedBag: ");
+        linkedBag.forEach((x)-> System.out.print(x + " "));
+        System.out.println("\nEnding ResizableArrayBag: ");
+        resizableArrayBag.forEach((x)-> System.out.print(x + " "));
+
     }
 
 }
