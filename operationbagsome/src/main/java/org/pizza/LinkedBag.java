@@ -9,6 +9,9 @@ import java.util.NoSuchElementException;
     @author Timothy M. Henry
     @version 4.0
 */
+
+// Modified Version
+
 public final class LinkedBag<T> implements BagInterface<T>
 {
     private Node firstNode;
@@ -224,19 +227,21 @@ public final class LinkedBag<T> implements BagInterface<T>
 	public BagInterface<T> intersection(BagInterface<T> otherBag) {
         BagInterface<T> intersectionBag = new LinkedBag<T>();
         BagInterface<T> tempBag = new LinkedBag<T>();
-        forEach((x)->{
-            if (x != null) {
-                intersectionBag.add(x);
+        
+        otherBag.forEach((x) -> {
+            tempBag.add(x);
+        });
+    
+        forEach((x) -> {
+            if (x != null && tempBag.contains(x)) { 
+                intersectionBag.add(x); 
+                tempBag.remove(x); 
             }
         });
-        otherBag.forEach((x)->{
-            if (tempBag.contains(x)) {
-                intersectionBag.add(x);
-                tempBag.remove(x);
-            }
-        });
+    
         return intersectionBag;
     }
+    
 
 	/** Returns a bag containing the difference of this bag and another bag.
 		@param otherBag  The other bag to differ with.

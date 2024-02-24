@@ -11,17 +11,11 @@ public class BagDriver {
         LinkedBag<Integer> bag1 = new LinkedBag<>();
         LinkedBag<Integer> bag2 = new LinkedBag<>();
 
-        // Initialize Bag 1
-        bag1.add(1);
-        bag1.add(2);
-        bag1.add(3);
-        bag1.add(4);
-
-        // Initialize Bag 2
-        bag2.add(3);
-        bag2.add(4);
-        bag2.add(5);
-        bag2.add(6);
+        // Initialize Bag 1 and Bag 2
+        for (Integer i = 0; i < 6; i++)
+            bag1.add(i);
+        for (Integer i = 4; i < 8; i++)
+            bag2.add(i);
 
         // Prints Bag 1 and Bag 2
         System.out.println("Bag 1: ");
@@ -57,17 +51,12 @@ public class BagDriver {
         ResizableArrayBag<Integer> bag1 = new ResizableArrayBag<>();
         ResizableArrayBag<Integer> bag2 = new ResizableArrayBag<>();
 
-        // Initialize Bag 1
-        bag1.add(1);
-        bag1.add(2);
-        bag1.add(3);
-        bag1.add(4);
+        // Initialize Bag 1 and Bag 2
+        for (Integer i = 0; i < 6; i++)
+            bag1.add(i);
+        for (Integer i = 4; i < 8; i++)
+            bag2.add(i);
 
-        // Initialize Bag 2
-        bag2.add(3);
-        bag2.add(4);
-        bag2.add(5);
-        bag2.add(6);
 
         // Prints Bag 1 and Bag 2
         System.out.println("Bag 1: ");
@@ -76,7 +65,7 @@ public class BagDriver {
         bag2.forEach((x)-> System.out.print(x + " "));
 
         // Union
-        System.out.println("Union:");
+        System.out.println("\nUnion:");
         BagInterface<Integer> union = bag1.union(bag2);
         union.forEach((x) -> System.out.print(x + " "));
 
@@ -102,6 +91,8 @@ public class BagDriver {
         System.out.println("\n\n------------------------------\nBagInteroperabilityDemo");
         LinkedBag<Integer> linkedBag = new LinkedBag<>();
         ResizableArrayBag<Integer> resizableArrayBag = new ResizableArrayBag<>();
+
+
 
         // Initialize LinkedBag 
         linkedBag.add(1);
