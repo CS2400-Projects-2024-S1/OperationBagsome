@@ -96,7 +96,7 @@
           <version>3.6.3</version>
           <configuration>
             <show>private</show>
-            <reportOutputDirectory>./javadoc</reportOutputDirectory>
+            <reportOutputDirectory>${project.basedir}/javadoc</reportOutputDirectory>
             <destDir>myapidocs</destDir>
           </configuration>
         </plugin>
