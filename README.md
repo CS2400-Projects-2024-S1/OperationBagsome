@@ -1,10 +1,21 @@
-# OperationBagsome
+# OperationBagsome By Group: Pizza
+The Operation Bagsome project focuses on implementing and demonstrating operations on bag ADT (Resizable Arrays Bag and Linked Bag) using Java. 
 
-group name: pizza
+## Contributing
+Group Members: 
+- Jennifer Garcia (jennifere@cpp.edu) Github: fercia (...)
+- Monika Crichton (mcrichton@cpp.edu) Github: JustTransScripts (...)
+- Kenneth Wang (kennethwang@cp.edu) Github: kennethtl0522 (...)
 
-group members: 
-- Jennifer Garcia, jennifere@cpp.edu, fercia (...)
-- Monika Crichton, mcrichton@cpp.edu, JustTransScripts (...)
-- Kenneth Wang, kennethwang@cp.edu, kennethtl0522 (...) 
+Roles and Contributions:
+- Jennifer Garcia
+- Monika Crichton
+- Kenneth Wang 
 
-screencast link: 
+## Feature
+- Java 1.8
+- Unit test classes using JUnit framework for rigorous testing.
+
+## Screencast link: 
+
+
