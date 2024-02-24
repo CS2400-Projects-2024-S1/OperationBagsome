@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class ResizableArrayBagTest {
     public static void main(String[] args) {
@@ -21,29 +20,25 @@ public class ResizableArrayBagTest {
         System.out.println("The bag contains " + bag.getCurrentSize() + " items as following:");
         bag.forEach((x) -> System.out.print(x + " "));
         
+        // getFrequencyOf() 
         String[] testItems = {"A", "B", "C", "D", "Z"};
         for (String item : testItems) {
             System.out.println("Does this bag contain " + item + "? " + bag.contains(item));
             System.out.println("The count of " + item + " in this bag has " + bag.getFrequencyOf(item) + "\n");
         }
         
+        // remove()
         System.out.println("\nRemoving a string from the bag:");
         System.out.println("remove() returns " + bag.remove());
         System.out.println("The bag contains " + bag.getCurrentSize() + " string(s), as follows:");
-        System.out.println(Arrays.toString(bag.toArray()));
+        bag.forEach((x) -> System.out.print(x + " "));
 
+        // remove(item)
         String[] itemsToRemove = {"B", "A", "C", "Z"};
-        for (String item : itemsToRemove) {
-            System.out.println("\nRemoving \"" + item + "\" from the bag:");
-            System.out.println("remove(\"" + item + "\") returns " + bag.remove(item));
-            System.out.println("The bag contains " + bag.getCurrentSize() + " string(s), as follows:");
-            System.out.println(Arrays.toString(bag.toArray()));
-        }
+        for (String item : itemsToRemove)
+            bag.remove(item);
+        System.out.println("\nThe bag contains " + bag.getCurrentSize() + " string(s), as follows:");
+        bag.forEach((x) -> System.out.print(x + " "));
         
-        // // Clearing the bag
-        // System.out.println("\nClearing the bag:");
-        // assert bag.isEmpty() : "isEmpty finds the bag empty: OK.";
-        // System.out.println("The bag contains " + bag.getCurrentSize() + " string(s), as follows:");
-        // System.out.println(Arrays.toString(bag.toArray()));
     }
 }

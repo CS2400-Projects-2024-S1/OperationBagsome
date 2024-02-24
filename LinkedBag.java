@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /** LinkedBag.java
     A class of bags whose entries are stored in a chain of linked nodes.
@@ -274,9 +275,37 @@ public final class LinkedBag<T> implements BagInterface<T>
         }
     }
 
+    
+
     @Override
     public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+        return new LinkedBagIterator<T>(firstNode);
+    }
+
+    public class LinkedBagIterator<T> implements Iterator<T> {
+        private Node current;
+
+        public LinkedBagIterator(Node firstNode) {
+            current = firstNode;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext())
+                throw new NoSuchElementException();
+            T data = (T) current.data;
+            current = current.next;
+            return data;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("remove method is not supported");
+        }
     }
 }
