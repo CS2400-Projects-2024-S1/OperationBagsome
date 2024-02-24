@@ -86,9 +86,19 @@ public class LinkedBagTest {
     public void testDifference() {
         BagInterface<Integer> differenceBag = bag.difference(bag2);
 
+        Object[] expectedArray = {2, 3, 1, 0};
+        assertArrayEquals(expectedArray, differenceBag.toArray());
         assertEquals(4, differenceBag.getCurrentSize());
         for (int i = 0; i < 4; i++)
             assertTrue(differenceBag.contains(i));
+
+        BagInterface<Integer> differenceBag2 = bag2.difference(bag);
+        
+        Object[] expectedArray2 = {6, 7};
+        assertArrayEquals(expectedArray2, differenceBag2.toArray());
+        assertEquals(2, differenceBag2.getCurrentSize());
+        for (int i = 6; i < 8; i++)
+            assertTrue(differenceBag2.contains(i));
     }
 
     @Test

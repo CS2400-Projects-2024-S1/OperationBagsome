@@ -33,10 +33,16 @@ public class BagDriver {
         BagInterface<Integer> intersection = bag1.intersection(bag2);
         intersection.forEach((x) -> System.out.print(x + " "));
 
-        // Difference
-        System.out.println("\nDifference:");
+        // Difference bag1 to bag2
+        System.out.println("\nDifference bag1 to bag2:");
         BagInterface<Integer> difference = bag1.difference(bag2);
         difference.forEach((x) -> System.out.print(x + " "));
+
+         // Difference bag2 to bag1
+         System.out.println("\nDifference bag2 to bag1:");
+         BagInterface<Integer> difference2 = bag2.difference(bag1);
+         difference2.forEach((x) -> System.out.print(x + " "));
+ 
 
         // Demonstrate that bags are unchanged
         System.out.println("\nEnding Bag 1: ");
@@ -74,10 +80,16 @@ public class BagDriver {
         BagInterface<Integer> intersection = bag1.intersection(bag2);
         intersection.forEach((x) -> System.out.print(x + " "));
 
-        // Difference
-        System.out.println("\nDifference:");
+        // Difference bag1 to bag2
+        System.out.println("\nDifference bag1 to bag2:");
         BagInterface<Integer> difference = bag1.difference(bag2);
         difference.forEach((x) -> System.out.print(x + " "));
+
+         // Difference bag2 to bag1
+         System.out.println("\nDifference bag2 to bag1:");
+         BagInterface<Integer> difference2 = bag2.difference(bag1);
+         difference2.forEach((x) -> System.out.print(x + " "));
+ 
 
         // Demonstrate that bags are unchanged
         System.out.println("\nEnding Bag 1: ");
