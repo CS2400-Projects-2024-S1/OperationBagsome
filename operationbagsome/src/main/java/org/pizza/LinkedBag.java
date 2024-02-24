@@ -290,6 +290,7 @@ public final class LinkedBag<T> implements BagInterface<T>
         return new LinkedBagIterator<T>(firstNode);
     }
 
+    @SuppressWarnings({ "unchecked", "hiding" })
     public class LinkedBagIterator<T> implements Iterator<T> {
         private Node current;
 
