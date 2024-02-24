@@ -19,6 +19,7 @@ Roles and Contributions:
 
 ## Usage (For Contributors)
 Run ```mvn javadoc:javadoc``` to update javadoc.
+Javadoc HTML file located at ```${project.basedir}/javadoc/myapidocs/index.html```
 
 ## Screencast link: 
 
