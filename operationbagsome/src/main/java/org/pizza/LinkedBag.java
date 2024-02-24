@@ -131,6 +131,11 @@ public final class LinkedBag<T> implements BagInterface<T>
         return found;
     }
 
+    
+    /** 
+     * @param anEntry
+     * @return Node
+     */
     //Locates a given entry within this bag.
     //Returns a reference to the node containing the entry, if located,
     //or null otherwise.

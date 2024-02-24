@@ -178,6 +178,10 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
         return anEntry.equals(result);
     }
 
+    
+    /** 
+     * @return boolean
+     */
     //********************************************************************
     //This section contains six private helper methods.
     //********************************************************************
@@ -187,6 +191,11 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
         return numberOfEntries >= bag.length;
     }
 
+    
+    /** 
+     * @param anEntry
+     * @return int
+     */
     //Locate a given entry within the array bag.
     //Returns the index of the entry if located, -1 otherwise.
     //Pre-condition: checkInitialization has been called.
@@ -210,6 +219,11 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
         return where;
     }
 
+    
+    /** 
+     * @param givenIndex
+     * @return T
+     */
     //Remove and return the entry at a given index within the array.
     //If no such entry exists, returns null.
     //Precondition: 0 <= givenIndex < numberOfEntries.
@@ -267,6 +281,11 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
         bag = Arrays.copyOf(bag, newLength);
     }
 
+    /**
+        Returns a bag containing the union of this bag and another bag.
+		@param otherBag  The other bag to union with.
+		@return  A bag containing the union of these bags.
+    */
 	public BagInterface<T> union(BagInterface<T> otherBag) {
       ResizableArrayBag<T> unionBag = new ResizableArrayBag<T>(getCurrentSize()+otherBag.getCurrentSize());
       forEach((x)->{
@@ -282,6 +301,10 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       return unionBag;
    }
 
+    /** Returns a bag containing the intersection of this bag and another bag.
+		@param otherBag  The other bag to intersect with.
+		@return  A bag containing the intersection of these bags.
+    */
 	public BagInterface<T> intersection(BagInterface<T> otherBag) {
       BagInterface<T> intersectionBag = new ResizableArrayBag<T>
           (getCurrentSize() < otherBag.getCurrentSize() ? getCurrentSize() : otherBag.getCurrentSize());
@@ -298,7 +321,11 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       });
       return intersectionBag;
    }
-
+   
+    /** Returns a bag containing the difference of this bag and another bag.
+		@param otherBag  The other bag to differ with.
+		@return  A bag containing the difference of these bags.
+    */
 	public BagInterface<T> difference(BagInterface<T> otherBag) {
       BagInterface<T> differenceBag = new ResizableArrayBag<T>(getCurrentSize());
       forEach((x)->{
