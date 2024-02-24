@@ -15,6 +15,10 @@ Roles and Contributions:
 ## Feature
 - Java 1.8
 - Unit test classes using JUnit framework for rigorous testing.
+- Javadoc generation by Maven Javadoc Plugin 3.6.3
+
+## Usage (For Contributors)
+Run ```mvn javadoc:javadoc``` to update javadoc.
 
 ## Screencast link: 
 
