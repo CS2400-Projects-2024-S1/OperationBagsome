@@ -1,3 +1,4 @@
+package org.pizza;
 public class BagDriver {
     public static void main(String[] args) {
         LinkedBagDemo();
@@ -7,39 +8,38 @@ public class BagDriver {
 
     public static void LinkedBagDemo() {
         System.out.println("\n\nLinkedBagDemo");
-        // Create two bags
         LinkedBag<Integer> bag1 = new LinkedBag<>();
         LinkedBag<Integer> bag2 = new LinkedBag<>();
 
-        // Adding elements to the first bag
+        // Initialize Bag 1
         bag1.add(1);
         bag1.add(2);
         bag1.add(3);
         bag1.add(4);
 
-        // Adding elements to the second bag
+        // Initialize Bag 2
         bag2.add(3);
         bag2.add(4);
         bag2.add(5);
         bag2.add(6);
 
-        // Display original bags
+        // Prints Bag 1 and Bag 2
         System.out.println("Bag 1: ");
         bag1.forEach((x)-> System.out.print(x + " "));
         System.out.println("\nBag 2: ");
         bag2.forEach((x)-> System.out.print(x + " "));
 
-        // Demonstrate union
+        // Union
         System.out.println("\nUnion:");
         BagInterface<Integer> union = bag1.union(bag2);
         union.forEach((x) -> System.out.print(x + " "));
 
-        // Demonstrate intersection
+        // Intersection
         System.out.println("\nIntersection:");
         BagInterface<Integer> intersection = bag1.intersection(bag2);
         intersection.forEach((x) -> System.out.print(x + " "));
 
-        // Demonstrate difference
+        // Difference
         System.out.println("\nDifference:");
         BagInterface<Integer> difference = bag1.difference(bag2);
         difference.forEach((x) -> System.out.print(x + " "));
@@ -47,39 +47,38 @@ public class BagDriver {
 
     public static void ResizableArrayBagDemo() {
         System.out.println("\n\n------------------------------\nResizableArrayBagDemo");
-        // Create two bags
         ResizableArrayBag<Integer> bag1 = new ResizableArrayBag<>();
         ResizableArrayBag<Integer> bag2 = new ResizableArrayBag<>();
 
-        // Adding elements to the first bag
+        // Initialize Bag 1
         bag1.add(1);
         bag1.add(2);
         bag1.add(3);
         bag1.add(4);
 
-        // Adding elements to the second bag
+        // Initialize Bag 2
         bag2.add(3);
         bag2.add(4);
         bag2.add(5);
         bag2.add(6);
 
-        // Display original bags
+        // Prints Bag 1 and Bag 2
         System.out.println("Bag 1: ");
         bag1.forEach((x)-> System.out.print(x + " "));
         System.out.println("\nBag 2: ");
         bag2.forEach((x)-> System.out.print(x + " "));
 
-        // Demonstrate union
+        // Union
         System.out.println("Union:");
         BagInterface<Integer> union = bag1.union(bag2);
         union.forEach((x) -> System.out.print(x + " "));
 
-        // Demonstrate intersection
+        // Intersection
         System.out.println("\nIntersection:");
         BagInterface<Integer> intersection = bag1.intersection(bag2);
         intersection.forEach((x) -> System.out.print(x + " "));
 
-        // Demonstrate difference
+        // Difference
         System.out.println("\nDifference:");
         BagInterface<Integer> difference = bag1.difference(bag2);
         difference.forEach((x) -> System.out.print(x + " "));
@@ -87,29 +86,26 @@ public class BagDriver {
 
      public static void BagInteroperabilityDemo() {
         System.out.println("\n\n------------------------------\nBagInteroperabilityDemo");
-        // Create a LinkedBag and a ResizableArrayBag
         LinkedBag<Integer> linkedBag = new LinkedBag<>();
         ResizableArrayBag<Integer> resizableArrayBag = new ResizableArrayBag<>();
 
-        // Adding elements to the LinkedBag
+        // Initialize LinkedBag 
         linkedBag.add(1);
         linkedBag.add(2);
         linkedBag.add(3);
         linkedBag.add(4);
 
-        // Adding elements to the ResizableArrayBag
+        // Initialize ResizableArrayBag
         resizableArrayBag.add(3);
         resizableArrayBag.add(4);
         resizableArrayBag.add(5);
         resizableArrayBag.add(6);
 
-        // Display original bags
+        // Prints LinkedBag and ResizableArrayBag
         System.out.println("LinkedBag: ");
         linkedBag.forEach((x)-> System.out.print(x + " "));
         System.out.println("\nResizableArrayBag: ");
         resizableArrayBag.forEach((x)-> System.out.print(x + " "));
-
-        // Perform union, intersection, and difference using interoperability
 
         // Union: LinkedBag with ResizableArrayBag
         BagInterface<Integer> union1 = linkedBag.union(resizableArrayBag);

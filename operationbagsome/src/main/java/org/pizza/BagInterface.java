@@ -1,3 +1,4 @@
+package org.pizza;
 public interface BagInterface<T> extends Iterable<T>
 {
 	/** Gets the current number of entries in this bag.
