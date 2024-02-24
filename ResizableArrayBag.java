@@ -121,9 +121,15 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       T[] otherBagArray = otherBag.toArray();
       ResizableArrayBag<T> unionBag = new ResizableArrayBag<T>(thisBagArray.length+otherBagArray.length);
       for (int i = 0; i < thisBagArray.length; i++) {
+         if (thisBagArray[i] == null) {
+            continue;
+         }
          unionBag.add(thisBagArray[i]);
       }
       for (int i = 0; i < otherBagArray.length; i++) {
+         if (otherBagArray[i] == null) {
+            continue;
+         }
          unionBag.add(otherBagArray[i]);
       }
       return unionBag;
@@ -136,7 +142,10 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
           (thisBagArray.length < otherBagArray.length ? thisBagArray.length : otherBagArray.length);
       BagInterface<T> tempBag = new ResizableArrayBag<T>(thisBagArray.length);
       for (int i = 0; i < thisBagArray.length; i++) {
-          tempBag.add(thisBagArray[i]);
+         if (thisBagArray[i] == null) {
+            continue;
+         }
+         tempBag.add(thisBagArray[i]);
       }
       for (int i = 0; i < otherBagArray.length; i++) {
           if (tempBag.contains(otherBagArray[i])) {
@@ -152,6 +161,9 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
       T[] otherBagArray = otherBag.toArray();
       BagInterface<T> differenceBag = new ResizableArrayBag<T>(thisBagArray.length);
       for (int i = 0; i < thisBagArray.length; i++) {
+         if (thisBagArray[i] == null) {
+            continue;
+         }
          differenceBag.add(thisBagArray[i]);
      }
      for (int i = 0; i < otherBagArray.length; i++) {

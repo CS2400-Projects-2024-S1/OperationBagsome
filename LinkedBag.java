@@ -206,9 +206,15 @@ public final class LinkedBag<T> implements BagInterface<T>
         T[] otherBagArray = otherBag.toArray();
         LinkedBag<T> unionBag = new LinkedBag<T>();
         for (int i = 0; i < thisBagArray.length; i++) {
+            if (thisBagArray[i] == null) {
+                continue;
+            }
             unionBag.add(thisBagArray[i]);
         }
         for (int i = 0; i < otherBagArray.length; i++) {
+            if (otherBagArray[i] == null) {
+                continue;
+            }
             unionBag.add(otherBagArray[i]);
         }
         return unionBag;
@@ -224,6 +230,9 @@ public final class LinkedBag<T> implements BagInterface<T>
         BagInterface<T> intersectionBag = new LinkedBag<T>();
         BagInterface<T> tempBag = new LinkedBag<T>();
         for (int i = 0; i < thisBagArray.length; i++) {
+            if (thisBagArray[i] == null) {
+                continue;
+            }
             tempBag.add(thisBagArray[i]);
         }
         for (int i = 0; i < otherBagArray.length; i++) {
@@ -244,6 +253,9 @@ public final class LinkedBag<T> implements BagInterface<T>
         T[] otherBagArray = otherBag.toArray();
         BagInterface<T> differenceBag = new LinkedBag<T>();
         for (int i = 0; i < thisBagArray.length; i++) {
+            if (thisBagArray[i] == null) {
+                continue;
+            }
             differenceBag.add(thisBagArray[i]);
         }
         for (int i = 0; i < otherBagArray.length; i++) {
