@@ -117,61 +117,51 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 	}
 
 	public BagInterface<T> union(BagInterface<T> otherBag) {
-      T[] thisBagArray = toArray();
-      T[] otherBagArray = otherBag.toArray();
-      ResizableArrayBag<T> unionBag = new ResizableArrayBag<T>(thisBagArray.length+otherBagArray.length);
-      for (int i = 0; i < thisBagArray.length; i++) {
-         if (thisBagArray[i] == null) {
-            continue;
+      ResizableArrayBag<T> unionBag = new ResizableArrayBag<T>(getCurrentSize()+otherBag.getCurrentSize());
+      forEach((x)->{
+         if (x != null) {
+            unionBag.add(x);
          }
-         unionBag.add(thisBagArray[i]);
-      }
-      for (int i = 0; i < otherBagArray.length; i++) {
-         if (otherBagArray[i] == null) {
-            continue;
+      });
+      otherBag.forEach((x)->{
+         if (x != null) {
+            unionBag.add(x);
          }
-         unionBag.add(otherBagArray[i]);
-      }
+      });
       return unionBag;
    }
 
 	public BagInterface<T> intersection(BagInterface<T> otherBag) {
-      T[] thisBagArray = toArray();
-      T[] otherBagArray = otherBag.toArray();
       BagInterface<T> intersectionBag = new ResizableArrayBag<T>
-          (thisBagArray.length < otherBagArray.length ? thisBagArray.length : otherBagArray.length);
-      BagInterface<T> tempBag = new ResizableArrayBag<T>(thisBagArray.length);
-      for (int i = 0; i < thisBagArray.length; i++) {
-         if (thisBagArray[i] == null) {
-            continue;
+          (getCurrentSize() < otherBag.getCurrentSize() ? getCurrentSize() : otherBag.getCurrentSize());
+      BagInterface<T> tempBag = new ResizableArrayBag<T>(getCurrentSize());
+      forEach((x)->{
+         if (x != null) {
+            intersectionBag.add(x);
          }
-         tempBag.add(thisBagArray[i]);
-      }
-      for (int i = 0; i < otherBagArray.length; i++) {
-          if (tempBag.contains(otherBagArray[i])) {
-              intersectionBag.add(otherBagArray[i]);
-              tempBag.remove(otherBagArray[i]);
-          }
-      }
+      });
+      otherBag.forEach((x)->{
+         if (tempBag.contains(x)) {
+            intersectionBag.add(x);
+            tempBag.remove(x);
+         }
+      });
       return intersectionBag;
    }
 
 	public BagInterface<T> difference(BagInterface<T> otherBag) {
-      T[] thisBagArray = toArray();
-      T[] otherBagArray = otherBag.toArray();
-      BagInterface<T> differenceBag = new ResizableArrayBag<T>(thisBagArray.length);
-      for (int i = 0; i < thisBagArray.length; i++) {
-         if (thisBagArray[i] == null) {
-            continue;
+      BagInterface<T> differenceBag = new ResizableArrayBag<T>(getCurrentSize());
+      forEach((x)->{
+         if (x != null) {
+            differenceBag.add(x);
          }
-         differenceBag.add(thisBagArray[i]);
-     }
-     for (int i = 0; i < otherBagArray.length; i++) {
-         if (differenceBag.contains(otherBagArray[i])) {
-             differenceBag.remove(otherBagArray[i]);
+      });
+      otherBag.forEach((x)->{
+         if (differenceBag.contains(x)) {
+            differenceBag.remove(x);
          }
-     }
-     return differenceBag;
+      });
+      return differenceBag;
   }
    
 	private int getIndexOf(T anEntry)
