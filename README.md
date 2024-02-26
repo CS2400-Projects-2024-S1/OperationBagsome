@@ -17,15 +17,15 @@ Roles and Contributions:
 
 - Monika Crichton
   
-> Defined union(), intersection(), and difference() in BagInterface; 
-> Implemented union(), intersection(), and difference() in LinkedBag; 
-> Implemented union(), intersection(), and difference() in ResizableArrayBag; 
+> Defined union(), intersection(), and difference() in BagInterface;  
+> Implemented union(), intersection(), and difference() in LinkedBag;  
+> Implemented union(), intersection(), and difference() in ResizableArrayBag;  
 
 - Kenneth Wang
   
-> Initialized Unit Test Framework (Junit) and wrote test cases for ResizableArrayBag and LinkedBag; 
-> Wrote client program, “BagDriver.java”; 
-> Minor help with debug and implements iterator in ResizableArrayBag and LinkedBag due to convenience;
+> Initialized Unit Test Framework (Junit) and wrote test cases for ResizableArrayBag and LinkedBag;  
+> Wrote client program, “BagDriver.java”;  
+> Minor help with debug and implements iterator in ResizableArrayBag and LinkedBag due to convenience;  
 
 ## Feature
 - Java 1.8
