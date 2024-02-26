@@ -24,7 +24,7 @@ Roles and Contributions:
 - Kenneth Wang
   
 > Initialized Unit Test Framework (Junit) and wrote test cases for ResizableArrayBag and LinkedBag;  
-> Wrote client program, “BagDriver.java”;  
+> Wrote most part of client program, “BagDriver.java”;  
 > Minor help with debug and implements iterator in ResizableArrayBag and LinkedBag due to convenience;  
 
 ## Feature
@@ -37,5 +37,6 @@ Run ```mvn javadoc:javadoc``` to update javadoc.
 Javadoc HTML file located at ```${project.basedir}/javadoc/myapidocs/index.html```
 
 ## Screencast link: 
+https://vimeo.com/916575922?share=copy
 
 
