@@ -4,7 +4,7 @@ The Operation Bagsome project focuses on implementing and demonstrating operatio
 ## Contributing
 Group Members: 
 - Jennifer Garcia (jennifere@cpp.edu) Github: fercia 
-- Monika Crichton (mcrichton@cpp.edu) Github: JustTransScripts 
+- {REDACTED} ({REDACTED}) Github: JustTransScripts 
 - Kenneth Wang (kennethwang@cp.edu) Github: kennethtl0522 
 
 Roles and Contributions:
@@ -15,7 +15,7 @@ Roles and Contributions:
 > Wrote part of BagDriver.java;  
 > Helped with Word doc and README.md files;  
 
-- Monika Crichton
+- {JustTransScripts}
   
 > Defined union(), intersection(), and difference() in BagInterface;  
 > Implemented union(), intersection(), and difference() in LinkedBag;  
